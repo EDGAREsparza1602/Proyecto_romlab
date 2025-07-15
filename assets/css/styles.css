@@ -1,0 +1,219 @@
+/* Variables de color */
+:root {
+    --verde: #a4cc36;
+    --azul: #2b3f74;
+    --blanco: #ffffff;
+    --gris: #f5f5f5;
+  }
+  
+  /* Reset general */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--blanco);
+    color: var(--azul);
+    line-height: 1.6;
+  }
+  
+  /* Encabezado y menú */
+  header {
+    background-color: var(--azul);
+    color: var(--blanco);
+    padding: 1rem 2rem;
+  }
+  
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .logo img {
+    height: 50px;
+  }
+  
+  .menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .menu li a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .menu li a:hover {
+    color: var(--verde);
+  }
+  
+  /* Banner */
+  .banner {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+  }
+  
+  .banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .banner-texto {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    background-color: rgba(43, 63, 116, 0.7);
+    padding: 1rem;
+    border-radius: 8px;
+    color: var(--blanco);
+    max-width: 400px;
+  }
+  
+  .banner-texto h1 {
+    font-size: 2rem;
+  }
+  
+  .banner-texto p {
+    margin-bottom: 1rem;
+  }
+  
+  .boton-cta {
+    display: inline-block;
+    background-color: var(--verde);
+    color: var(--blanco);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .boton-cta:hover {
+    background-color: #8caf30;
+  }
+  
+  /* Secciones */
+  .introduccion,
+  .servicios {
+    padding: 3rem 2rem;
+    text-align: center;
+    background-color: var(--gris);
+  }
+  
+  .introduccion h2,
+  .servicios h2 {
+    color: var(--azul);
+    margin-bottom: 1rem;
+  }
+  
+  .tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .tarjeta {
+    background-color: var(--blanco);
+    border: 1px solid #ddd;
+    padding: 1.5rem;
+    width: 280px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .tarjeta h3 {
+    color: var(--verde);
+    margin-bottom: 0.5rem;
+  }
+  
+  /* WhatsApp flotante */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    z-index: 1000;
+  }
+  
+  .whatsapp-float img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: var(--azul);
+    color: var(--blanco);
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+  
+  /* ------------------------ */
+  /* Responsive Design (Media Queries) */
+  /* ------------------------ */
+  
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .menu {
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+  
+    .banner {
+      height: 40vh;
+    }
+  
+    .banner-texto {
+      left: 5%;
+      right: 5%;
+      max-width: 90%;
+      padding: 1rem;
+    }
+  
+    .banner-texto h1 {
+      font-size: 1.5rem;
+    }
+  
+    .tarjetas {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .banner {
+      height: 30vh;
+    }
+  
+    .banner-texto h1 {
+      font-size: 1.2rem;
+    }
+  
+    .boton-cta {
+      font-size: 0.9rem;
+      padding: 0.4rem 0.8rem;
+    }
+  
+    .tarjeta {
+      width: 90%;
+    }
+  }
+  
