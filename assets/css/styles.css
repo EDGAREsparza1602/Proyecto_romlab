@@ -1,219 +1,480 @@
-/* Variables de color */
+/* Variables de color existentes */
 :root {
     --verde: #a4cc36;
     --azul: #2b3f74;
     --blanco: #ffffff;
     --gris: #f5f5f5;
-  }
-  
-  /* Reset general */
-  * {
+
+    /* Nuevas variables para el banner, ajustadas a tu paleta existente */
+    --banner-dark-blue: #1A2E40; /* Un azul muy oscuro, casi negro, para el degradado */
+    --banner-medium-blue: #2A4F6D; /* Un azul medio para el degradado */
+    --banner-accent-color: #6DD5ED; /* Azul verdoso brillante para ondas y acentos del botón */
+    --banner-text-color: #F0F8FF; /* Blanco suave para el texto del banner */
+    --banner-shadow-color: rgba(109, 213, 237, 0.5); /* Resplandor del acento */
+}
+
+/* Reset general */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif; /* Manteniendo tu fuente */
     background-color: var(--blanco);
     color: var(--azul);
     line-height: 1.6;
-  }
-  
-  /* Encabezado y menú */
-  header {
-    background-color: var(--azul);
-    color: var(--blanco);
+}
+
+/* --- Encabezado y menú (Ajustado para integrarse) --- */
+/* --- Encabezado y menú (Modificado para transparencia inicial e iluminación) --- */
+header {
+    background-color: rgba(43, 63, 116, 0); /* Fondo inicialmente transparente (RGBA con alfa 0) - usa tu --azul en el RGBA */
+    color: var(--blanco); /* El texto sigue siendo blanco */
     padding: 1rem 2rem;
-  }
-  
-  nav {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Mantén la sombra para cuando el contenido haga scroll debajo */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease; /* Transición suave para el fondo si decides cambiarlo en hover */
+}
+
+/* Opcional: Cambiar el fondo del header al hacer hover (puede no ser ideal UX) */
+/* header:hover {
+    background-color: rgba(43, 63, 116, 0.9); /* Fondo azul semitransparente al hacer hover
+} */
+
+nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-  }
-  
-  .logo img {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo img {
     height: 50px;
-  }
-  
-  .menu {
+    vertical-align: middle;
+}
+
+.menu {
     list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    gap: 1rem;
-  }
-  
-  .menu li a {
+    gap: 1.5rem;
+}
+
+.menu li a {
     color: var(--blanco);
     text-decoration: none;
     font-weight: bold;
-  }
-  
-  .menu li a:hover {
-    color: var(--verde);
-  }
-  
-  /* Banner */
-  .banner {
-    position: relative;
+    font-size: 1em;
+    padding: 5px 0;
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Añadida transición para text-shadow */
+}
+
+.menu li a:hover {
+    color: var(--verde); /* Mantiene el cambio de color */
+    text-shadow: 0 0 5px var(--verde), 0 0 10px var(--verde); /* Añade un resplandor al texto */
+    border-bottom: none; /* Opcional: quitar el subrayado si prefieres solo el resplandor */
+}
+
+/* --- Media Queries para el Header (Sin cambios importantes aquí) --- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+}
+
+/* --- Banner (Nuevo estilo) --- */
+/* --- Banner (Estilo con imagen de fondo específica) --- */
+.banner-container {
     width: 100%;
-    height: 60vh;
+    max-width: 100%;
+    height: 400px; /* Altura del banner */
+    position: relative;
     overflow: hidden;
-  }
-  
-  .banner img {
+
+    /* --- ESTILOS PARA LA IMAGEN DE FONDO --- */
+    /* ¡CAMBIA ESTA RUTA POR LA RUTA EXACTA DE TU IMAGEN! */
+    background-image: img('assets/img/banner.jpg'); /* Ejemplo: url('../img/mi-banner-salud.jpg') */
+    background-size: cover; /* La imagen cubrirá todo el contenedor */
+    background-position: center center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    /* --- FIN ESTILOS PARA LA IMAGEN DE FONDO --- */
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido */
+    justify-content: flex-start; /* Alinea el contenido a la izquierda */
+    padding: 0 8%; /* Espaciado lateral para el contenido */
+    box-sizing: border-box;
+}
+
+/* Capa de superposición semitransparente para mejorar la legibilidad del texto */
+.banner-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-  }
-  
-  .banner-texto {
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    transform: translateY(-50%);
-    background-color: rgba(43, 63, 116, 0.7);
-    padding: 1rem;
-    border-radius: 8px;
-    color: var(--blanco);
-    max-width: 400px;
-  }
-  
-  .banner-texto h1 {
-    font-size: 2rem;
-  }
-  
-  .banner-texto p {
-    margin-bottom: 1rem;
-  }
-  
-  .boton-cta {
+    /* Ajusta el color RGBA para que se adapte a tu imagen y texto */
+    background-color: rgba(43, 63, 116, 0.6); /* Color de la capa, usa tu --azul con transparencia */
+    z-index: 1; /* Debe estar entre la imagen de fondo y el contenido del texto */
+}
+
+/* Asegúrate de que el contenido del banner (texto y botón) esté por encima de la capa de superposición */
+.banner-content {
+    color: var(--banner-text-color); /* Blanco suave o el color que hayas definido para el texto del banner */
+    z-index: 2; /* Más alto que la capa ::after */
+    position: relative; /* Necesario para que z-index funcione correctamente */
+    text-align: left;
+    max-width: 600px;
+    padding-left: 20px;
+}
+
+
+.banner-logo { /* Nuevo estilo para el logo/nombre de la empresa en el banner */
+    font-size: 1.1em;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    opacity: 0.7;
+    text-transform: uppercase;
+}
+
+.banner-content h1 {
+    font-size: 3.2em;
+    margin: 0 0 15px 0;
+    line-height: 1.1;
+    font-weight: 700;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.banner-content p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    opacity: 0.95;
+    font-weight: 400;
+}
+
+.btn-primary { /* Estilo para el botón CTA, renombrado de '.boton-cta' */
     display: inline-block;
-    background-color: var(--verde);
-    color: var(--blanco);
-    padding: 0.5rem 1rem;
+    background-color: var(--banner-accent-color); /* Color de acento del banner */
+    color: var(--banner-dark-blue); /* Color del texto del botón */
+    padding: 14px 32px;
+    border-radius: 50px;
     text-decoration: none;
-    border-radius: 5px;
-  }
-  
-  .boton-cta:hover {
-    background-color: #8caf30;
-  }
-  
-  /* Secciones */
-  .introduccion,
-  .servicios {
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px var(--banner-shadow-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary:hover {
+    background-color: #55C4D9; /* Un tono ligeramente diferente al pasar el ratón */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--banner-shadow-color);
+}
+
+/* --- Secciones (manteniendo tus estilos) --- */
+.contenedor { /* Agregado para centralizar contenido en otras secciones */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.introduccion,
+.servicios {
     padding: 3rem 2rem;
     text-align: center;
     background-color: var(--gris);
-  }
-  
-  .introduccion h2,
-  .servicios h2 {
+}
+
+.introduccion h2,
+.servicios h2 {
     color: var(--azul);
     margin-bottom: 1rem;
-  }
-  
-  .tarjetas {
+}
+
+.tarjetas {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
     margin-top: 2rem;
-  }
-  
-  .tarjeta {
+}
+
+.tarjeta {
     background-color: var(--blanco);
     border: 1px solid #ddd;
     padding: 1.5rem;
     width: 280px;
     border-radius: 8px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
-  }
-  
-  .tarjeta h3 {
+}
+
+.tarjeta h3 {
     color: var(--verde);
     margin-bottom: 0.5rem;
-  }
-  
-  /* WhatsApp flotante */
-  .whatsapp-float {
+}
+
+/* --- WhatsApp flotante (manteniendo tus estilos) --- */
+.whatsapp-btn { /* Renombrado de .whatsapp-float */
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    right: 30px;
     width: 60px;
     height: 60px;
-    z-index: 1000;
-  }
-  
-  .whatsapp-float img {
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    z-index: 9999;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+
+.icon-phone {
+    width: 28px;
+    height: 28px;
+    fill: white;
+}
+
+.whatsapp-btn::after {
+    content: "";
+    position: absolute;
     width: 100%;
-    height: auto;
-  }
-  
-  /* Footer */
-  footer {
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid #25D366;
+    animation: pulse 1.5s infinite;
+    opacity: 0.5;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* --- TIMELINE (manteniendo tus estilos) --- */
+.timeline-container h2,
+.title-timeline h2{
+    color: var(--azul);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+
+.timeline-container {
+    padding: 40px 20px;
+}
+
+.timeline {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    gap: 40px;
+    scroll-behavior: smooth;
+    cursor: grab;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.timeline::-webkit-scrollbar {
+    display: none;
+}
+
+.timeline:active {
+    cursor: grabbing;
+}
+
+.timeline-event {
+    min-width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.2s;
+}
+
+.timeline-event[data-aos="fade-up"] {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #0077ff; /* Considera usar una de tus variables aquí, ej: var(--azul) */
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+
+/* --- Footer (manteniendo tus estilos) --- */
+footer {
     background-color: var(--azul);
     color: var(--blanco);
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
-  }
-  
-  /* ------------------------ */
-  /* Responsive Design (Media Queries) */
-  /* ------------------------ */
-  
-  @media (max-width: 768px) {
+}
+
+/* --- Responsive Design (Media Queries) --- */
+
+@media (max-width: 1024px) {
+    /* Header */
+    nav .menu {
+        gap: 1rem;
+    }
+
+    /* Banner */
+    .banner-container {
+        height: 350px;
+        padding: 0 6%;
+    }
+    .banner-content h1 {
+        font-size: 2.8em;
+    }
+    .banner-content p {
+        font-size: 1.1em;
+    }
+    .btn-primary {
+        padding: 12px 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Header */
     nav {
-      flex-direction: column;
-      align-items: flex-start;
+        flex-direction: column;
+        align-items: center; /* Centra los ítems al apilar */
     }
-  
+
     .menu {
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-top: 1rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1rem;
     }
-  
-    .banner {
-      height: 40vh;
+
+    /* Banner */
+    .banner-container {
+        height: 300px;
+        padding: 0 5%;
+        text-align: center; /* Centra el texto en pantallas más pequeñas */
+        justify-content: center; /* Centra el contenido horizontalmente */
     }
-  
-    .banner-texto {
-      left: 5%;
-      right: 5%;
-      max-width: 90%;
-      padding: 1rem;
+    .banner-content {
+        max-width: 90%; /* Permite que el texto ocupe más espacio */
+        padding-left: 0;
     }
-  
-    .banner-texto h1 {
-      font-size: 1.5rem;
+    .banner-content h1 {
+        font-size: 2.4em;
     }
-  
+    .banner-content p {
+        font-size: 1em;
+    }
+    .btn-primary {
+        padding: 10px 24px;
+        font-size: 0.9em;
+    }
+
+    /* Secciones */
+    .introduccion,
+    .servicios {
+        padding: 2rem 1rem;
+    }
+
     .tarjetas {
-      flex-direction: column;
-      align-items: center;
+        flex-direction: column;
+        align-items: center;
     }
-  }
-  
-  @media (max-width: 480px) {
-    .banner {
-      height: 30vh;
+}
+
+@media (max-width: 480px) {
+    /* Header */
+    header {
+        padding: 0.8rem 1rem;
     }
-  
-    .banner-texto h1 {
-      font-size: 1.2rem;
+    .logo img {
+        height: 40px;
     }
-  
-    .boton-cta {
-      font-size: 0.9rem;
-      padding: 0.4rem 0.8rem;
+    .menu li a {
+        font-size: 0.9em;
     }
-  
+
+    /* Banner */
+    .banner-container {
+        height: 250px;
+    }
+    .banner-content h1 {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+    }
+    .banner-content p {
+        font-size: 0.9em;
+        margin-bottom: 20px;
+    }
+    .btn-primary {
+        padding: 8px 18px;
+        font-size: 0.85em;
+    }
+    .banner-logo {
+        font-size: 0.9em;
+        letter-spacing: 2px;
+    }
+
+    /* Secciones */
     .tarjeta {
-      width: 90%;
+        width: 90%;
     }
-  }
-  
+
+    /* WhatsApp */
+    .whatsapp-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+    }
+    .icon-phone {
+        width: 24px;
+        height: 24px;
+    }
+}
