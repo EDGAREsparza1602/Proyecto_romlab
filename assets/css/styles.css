@@ -99,31 +99,33 @@ nav {
 
 /* --- Banner (Nuevo estilo) --- */
 /* --- Banner (Estilo con imagen de fondo específica) --- */
-.banner-container {
+.banner-container{
     width: 100%;
-    max-width: 100%;
-    height: 400px; /* Altura del banner */
-    position: relative;
+    /*max-width: 1%;*/
+    height: 100%; /* Altura del banner */
+    position: cover;
     overflow: hidden;
+    background-color: #0077ff;
 
     /* --- ESTILOS PARA LA IMAGEN DE FONDO --- */
     /* ¡CAMBIA ESTA RUTA POR LA RUTA EXACTA DE TU IMAGEN! */
-    background-image: img('assets/img/banner.jpg'); /* Ejemplo: url('../img/mi-banner-salud.jpg') */
-    background-size: cover; /* La imagen cubrirá todo el contenedor */
+    background-image: img('assets/img/banners/banner.jpg'); /* Ejemplo: url('../img/mi-banner-salud.jpg') */
+    background-size: 100%; /* La imagen cubrirá todo el contenedor */
     background-position: center center; /* Centra la imagen */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     /* --- FIN ESTILOS PARA LA IMAGEN DE FONDO --- */
-
+    
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center; /* Centra verticalmente el contenido */
     justify-content: flex-start; /* Alinea el contenido a la izquierda */
-    padding: 0 8%; /* Espaciado lateral para el contenido */
+    padding: 0 0%; /* Espaciado lateral para el contenido */
+    box-shadow: 0 5px 20px rgb(17, 228, 10);
     box-sizing: border-box;
 }
 
 /* Capa de superposición semitransparente para mejorar la legibilidad del texto */
-.banner-container::after {
+/*.banner-container::after {
     content: '';
     position: absolute;
     top: 0;
@@ -131,44 +133,17 @@ nav {
     width: 100%;
     height: 100%;
     /* Ajusta el color RGBA para que se adapte a tu imagen y texto */
-    background-color: rgba(43, 63, 116, 0.6); /* Color de la capa, usa tu --azul con transparencia */
-    z-index: 1; /* Debe estar entre la imagen de fondo y el contenido del texto */
-}
+    /*background-color: rgba(43, 63, 116, 0.6); /* Color de la capa, usa tu --azul con transparencia */
+    /*z-index: 1; /* Debe estar entre la imagen de fondo y el contenido del texto */
 
 /* Asegúrate de que el contenido del banner (texto y botón) esté por encima de la capa de superposición */
 .banner-content {
     color: var(--banner-text-color); /* Blanco suave o el color que hayas definido para el texto del banner */
     z-index: 2; /* Más alto que la capa ::after */
-    position: relative; /* Necesario para que z-index funcione correctamente */
+    position: absolute; /* Necesario para que z-index funcione correctamente */
     text-align: left;
-    max-width: 600px;
-    padding-left: 20px;
-}
-
-
-.banner-logo { /* Nuevo estilo para el logo/nombre de la empresa en el banner */
-    font-size: 1.1em;
-    font-weight: 600;
-    letter-spacing: 3px;
-    margin-bottom: 10px;
-    opacity: 0.7;
-    text-transform: uppercase;
-}
-
-.banner-content h1 {
-    font-size: 3.2em;
-    margin: 0 0 15px 0;
-    line-height: 1.1;
-    font-weight: 700;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-}
-
-.banner-content p {
-    font-size: 1.2em;
-    line-height: 1.5;
-    margin-bottom: 30px;
-    opacity: 0.95;
-    font-weight: 400;
+    max-width: 100%;
+    padding-left: 0%;
 }
 
 .btn-primary { /* Estilo para el botón CTA, renombrado de '.boton-cta' */
@@ -358,6 +333,30 @@ footer {
 }
 
 /* --- Responsive Design (Media Queries) --- */
+
+
+@media (max-width: 2000px) {
+    /* Header */
+    nav .menu {
+        gap: 1rem;
+    }
+
+    /* Banner */
+    .banner-container {
+        
+        height: 350px;
+        padding: 0 6%;
+    }
+    .banner-content h1 {
+        font-size: 2.8em;
+    }
+    .banner-content p {
+        font-size: 1.1em;
+    }
+    .btn-primary {
+        padding: 12px 28px;
+    }
+}
 
 @media (max-width: 1024px) {
     /* Header */
