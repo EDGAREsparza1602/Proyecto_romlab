@@ -1,16 +1,15 @@
-/* Variables de color existentes */
 :root {
     --verde: #a4cc36;
     --azul: #2b3f74;
     --blanco: #ffffff;
     --gris: #f5f5f5;
 
-    /* Nuevas variables para el banner, ajustadas a tu paleta existente */
-    --banner-dark-blue: #1A2E40; /* Un azul muy oscuro, casi negro, para el degradado */
-    --banner-medium-blue: #2A4F6D; /* Un azul medio para el degradado */
-    --banner-accent-color: #6DD5ED; /* Azul verdoso brillante para ondas y acentos del botón */
-    --banner-text-color: #F0F8FF; /* Blanco suave para el texto del banner */
-    --banner-shadow-color: rgba(109, 213, 237, 0.5); /* Resplandor del acento */
+    /* Nuevas variables para el banner */
+    --banner-dark-blue: #1A2E40;
+    --banner-medium-blue: #2A4F6D;
+    --banner-accent-color: #6DD5ED;
+    --banner-text-color: #F0F8FF;
+    --banner-shadow-color: rgba(109, 213, 237, 0.5);
 }
 
 /* Reset general */
@@ -21,29 +20,38 @@
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif; /* Manteniendo tu fuente */
-    background-color: var(--blanco);
+    font-family: 'Segoe UI', sans-serif;
     color: var(--azul);
     line-height: 1.6;
+   /* background-image: url('../img/banners/banner.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;*/
 }
 
-/* --- Encabezado y menú (Ajustado para integrarse) --- */
-/* --- Encabezado y menú (Modificado para transparencia inicial e iluminación) --- */
+.top-header {
+    position: relative;
+    z-index: 2;
+}
+
+.banner-container {
+    position: relative;
+    top: -60px; /* sube el banner 50px */
+    height: 100%;
+    z-index: 1;
+}
+
+/* Header */
 header {
-    background-color: rgba(43, 63, 116, 0); /* Fondo inicialmente transparente (RGBA con alfa 0) - usa tu --azul en el RGBA */
-    color: var(--blanco); /* El texto sigue siendo blanco */
+    background-color: transparent;
+    color: var(--blanco);
     padding: 1rem 2rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Mantén la sombra para cuando el contenido haga scroll debajo */
     position: sticky;
     top: 0;
     z-index: 1000;
-    transition: background-color 0.3s ease; /* Transición suave para el fondo si decides cambiarlo en hover */
+    box-shadow: none;
+    transition: background-color 0.3s ease;
 }
-
-/* Opcional: Cambiar el fondo del header al hacer hover (puede no ser ideal UX) */
-/* header:hover {
-    background-color: rgba(43, 63, 116, 0.9); /* Fondo azul semitransparente al hacer hover
-} */
 
 nav {
     display: flex;
@@ -74,100 +82,32 @@ nav {
     font-weight: bold;
     font-size: 1em;
     padding: 5px 0;
-    transition: color 0.3s ease, text-shadow 0.3s ease; /* Añadida transición para text-shadow */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .menu li a:hover {
-    color: var(--verde); /* Mantiene el cambio de color */
-    text-shadow: 0 0 5px var(--verde), 0 0 10px var(--verde); /* Añade un resplandor al texto */
-    border-bottom: none; /* Opcional: quitar el subrayado si prefieres solo el resplandor */
+    color: var(--verde);
+    text-shadow: 0 0 5px var(--verde), 0 0 10px var(--verde);
+    border-bottom: none;
 }
 
-/* --- Media Queries para el Header (Sin cambios importantes aquí) --- */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        align-items: center;
-    }
 
-    .menu {
-        flex-direction: column;
-        gap: 0.5rem;
-        margin-top: 1rem;
-    }
-}
-
-/* --- Banner (Nuevo estilo) --- */
-/* --- Banner (Estilo con imagen de fondo específica) --- */
-.banner-container{
-    width: 100%;
-    /*max-width: 1%;*/
-    height: 100%; /* Altura del banner */
-    position: cover;
-    overflow: hidden;
-    background-color: #0077ff;
-
-    /* --- ESTILOS PARA LA IMAGEN DE FONDO --- */
-    /* ¡CAMBIA ESTA RUTA POR LA RUTA EXACTA DE TU IMAGEN! */
-    background-image: img('assets/img/banners/banner.jpg'); /* Ejemplo: url('../img/mi-banner-salud.jpg') */
-    background-size: 100%; /* La imagen cubrirá todo el contenedor */
-    background-position: center center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    /* --- FIN ESTILOS PARA LA IMAGEN DE FONDO --- */
-    
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+/* Banner */
+.banner-container {
+    background-image: url('../img/banners/banner.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 400px;
     display: flex;
-    align-items: center; /* Centra verticalmente el contenido */
-    justify-content: flex-start; /* Alinea el contenido a la izquierda */
-    padding: 0 0%; /* Espaciado lateral para el contenido */
-    box-shadow: 0 5px 20px rgb(17, 228, 10);
-    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    color: var(--banner-text-color);
+    text-align: center;
 }
 
-/* Capa de superposición semitransparente para mejorar la legibilidad del texto */
-/*.banner-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Ajusta el color RGBA para que se adapte a tu imagen y texto */
-    /*background-color: rgba(43, 63, 116, 0.6); /* Color de la capa, usa tu --azul con transparencia */
-    /*z-index: 1; /* Debe estar entre la imagen de fondo y el contenido del texto */
-
-/* Asegúrate de que el contenido del banner (texto y botón) esté por encima de la capa de superposición */
-.banner-content {
-    color: var(--banner-text-color); /* Blanco suave o el color que hayas definido para el texto del banner */
-    z-index: 2; /* Más alto que la capa ::after */
-    position: absolute; /* Necesario para que z-index funcione correctamente */
-    text-align: left;
-    max-width: 100%;
-    padding-left: 0%;
-}
-
-.btn-primary { /* Estilo para el botón CTA, renombrado de '.boton-cta' */
-    display: inline-block;
-    background-color: var(--banner-accent-color); /* Color de acento del banner */
-    color: var(--banner-dark-blue); /* Color del texto del botón */
-    padding: 14px 32px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: all 0.3s ease;
-    box-shadow: 0 6px 20px var(--banner-shadow-color);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.btn-primary:hover {
-    background-color: #55C4D9; /* Un tono ligeramente diferente al pasar el ratón */
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px var(--banner-shadow-color);
-}
-
-/* --- Secciones (manteniendo tus estilos) --- */
-.contenedor { /* Agregado para centralizar contenido en otras secciones */
+/* Secciones */
+.contenedor {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -209,8 +149,8 @@ nav {
     margin-bottom: 0.5rem;
 }
 
-/* --- WhatsApp flotante (manteniendo tus estilos) --- */
-.whatsapp-btn { /* Renombrado de .whatsapp-float */
+/* WhatsApp flotante */
+.whatsapp-btn {
     position: fixed;
     bottom: 20px;
     right: 30px;
@@ -259,14 +199,13 @@ nav {
     }
 }
 
-/* --- TIMELINE (manteniendo tus estilos) --- */
+/* TIMELINE */
 .timeline-container h2,
-.title-timeline h2{
+.title-timeline h2 {
     color: var(--azul);
     text-align: center;
     margin-bottom: 1rem;
 }
-
 
 .timeline-container {
     padding: 40px 20px;
@@ -317,13 +256,12 @@ nav {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: 3px solid #0077ff; /* Considera usar una de tus variables aquí, ej: var(--azul) */
+    border: 3px solid var(--azul);
     margin-bottom: 10px;
     object-fit: cover;
 }
 
-
-/* --- Footer (manteniendo tus estilos) --- */
+/* Footer */
 footer {
     background-color: var(--azul);
     color: var(--blanco);
@@ -332,18 +270,13 @@ footer {
     margin-top: 2rem;
 }
 
-/* --- Responsive Design (Media Queries) --- */
-
+/* Responsive Design */
 
 @media (max-width: 2000px) {
-    /* Header */
     nav .menu {
         gap: 1rem;
     }
-
-    /* Banner */
     .banner-container {
-        
         height: 350px;
         padding: 0 6%;
     }
@@ -359,12 +292,9 @@ footer {
 }
 
 @media (max-width: 1024px) {
-    /* Header */
     nav .menu {
         gap: 1rem;
     }
-
-    /* Banner */
     .banner-container {
         height: 350px;
         padding: 0 6%;
@@ -381,27 +311,23 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* Header */
     nav {
         flex-direction: column;
-        align-items: center; /* Centra los ítems al apilar */
+        align-items: center;
     }
-
     .menu {
         flex-direction: column;
         gap: 0.5rem;
         margin-top: 1rem;
     }
-
-    /* Banner */
     .banner-container {
         height: 300px;
         padding: 0 5%;
-        text-align: center; /* Centra el texto en pantallas más pequeñas */
-        justify-content: center; /* Centra el contenido horizontalmente */
+        text-align: center;
+        justify-content: center;
     }
     .banner-content {
-        max-width: 90%; /* Permite que el texto ocupe más espacio */
+        max-width: 90%;
         padding-left: 0;
     }
     .banner-content h1 {
@@ -414,13 +340,10 @@ footer {
         padding: 10px 24px;
         font-size: 0.9em;
     }
-
-    /* Secciones */
     .introduccion,
     .servicios {
         padding: 2rem 1rem;
     }
-
     .tarjetas {
         flex-direction: column;
         align-items: center;
@@ -428,7 +351,6 @@ footer {
 }
 
 @media (max-width: 480px) {
-    /* Header */
     header {
         padding: 0.8rem 1rem;
     }
@@ -438,8 +360,6 @@ footer {
     .menu li a {
         font-size: 0.9em;
     }
-
-    /* Banner */
     .banner-container {
         height: 250px;
     }
@@ -459,13 +379,9 @@ footer {
         font-size: 0.9em;
         letter-spacing: 2px;
     }
-
-    /* Secciones */
     .tarjeta {
         width: 90%;
     }
-
-    /* WhatsApp */
     .whatsapp-btn {
         width: 50px;
         height: 50px;
