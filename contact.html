@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Rom Pharma - Formulario de contacto para profesionales de la salud" />
+    <title>Rom Pharma | Contacto</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+    <!-- Encabezado (igual que en tu página principal) -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="assets/img/logo/logo.png" alt="Logo Rom Pharma" />
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="referencias.html">Referencias</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Formulario de contacto -->
+    <section class="formulario-contacto">
+        <h1>Formulario de Contacto</h1>
+        <form action="/submit" method="POST" id="contactoDoctor">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="nombre" class="required-field">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Dr. Juan Pérez García">
+                </div>
+
+                <div class="form-group">
+                    <label for="correo" class="required-field">Correo electrónico</label>
+                    <input type="email" id="correo" name="correo" required placeholder="ejemplo@dominio.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono" class="required-field">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" required placeholder="+52 33 1234 5678">
+                </div>
+
+                <div class="form-group">
+                    <label for="localidad" class="required-field">Localidad</label>
+                    <input type="text" id="localidad" name="localidad" required placeholder="Ciudad, Estado">
+                </div>
+
+                <div class="form-group">
+                    <label for="cedula" class="required-field">Cédula Profesional</label>
+                    <input type="text" id="cedula" name="cedula" required placeholder="Ej. 12345678">
+                </div>
+
+                <div class="form-group">
+                    <label for="institucion">Institución/Hospital</label>
+                    <input type="text" id="institucion" name="institucion" placeholder="Nombre de la institución">
+                </div>
+
+                <div class="form-group especialidad-medica">
+                    <label for="especialidad" class="required-field">Especialidad médica</label>
+                    <select id="especialidad" name="especialidad" required>
+                        <option value="" disabled selected>Seleccione su especialidad</option>
+                        <option value="cardiologia">Cardiología</option>
+                        <option value="pediatria">Pediatría</option>
+                        <option value="ginecologia">Ginecología</option>
+                        <option value="oncologia">Oncología</option>
+                        <option value="medicina_interna">Medicina Interna</option>
+                        <option value="cirugia">Cirugía</option>
+                        <option value="neurologia">Neurología</option>
+                        <option value="oftalmologia">Oftalmología</option>
+                        <option value="otras">Otra especialidad</option>
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="mensaje">Mensaje o consulta específica</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" placeholder="Describa su consulta o área de interés..."></textarea>
+                </div>
+
+            </div>
+
+            <button type="submit" class="btn-enviar">Enviar Solicitud</button>
+        </form>
+    </section>
+
+    <!-- Botón flotante WhatsApp -->
+    <a href="https://wa.me/523317874880?text=Hola%2C%20quiero%20más%20información%20sobre%20sus%20servicios"
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer">
+        <img src="assets/img/whatsapp-icon.png" alt="WhatsApp" />
+    </a>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2025 Rom Pharma. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="assets/js/form-validation.js"></script>
+</body>
+</html>
