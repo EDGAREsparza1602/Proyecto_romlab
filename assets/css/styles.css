@@ -3,7 +3,6 @@
     --azul: #2b3f74;
     --blanco: #ffffff;
     --gris: #f5f5f5;
-
     /* Nuevas variables para el banner */
     --banner-dark-blue: #1A2E40;
     --banner-medium-blue: #2A4F6D;
@@ -23,7 +22,7 @@ body {
     font-family: 'Segoe UI', sans-serif;
     color: var(--azul);
     line-height: 1.6;
-   /* background-image: url('../img/banners/banner.jpg');
+    /*background-image: url('../img/banners/banner.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;*/
@@ -76,20 +75,20 @@ nav {
     gap: 1.5rem;
 }
 
-.menu li a {
-    color: var(--blanco);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1em;
-    padding: 5px 0;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-}
+    .menu li a {
+        color: var(--blanco);
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1em;
+        padding: 5px 0;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
 
-.menu li a:hover {
-    color: var(--verde);
-    text-shadow: 0 0 5px var(--verde), 0 0 10px var(--verde);
-    border-bottom: none;
-}
+        .menu li a:hover {
+            color: var(--verde);
+            text-shadow: 0 0 5px var(--verde), 0 0 10px var(--verde);
+            border-bottom: none;
+        }
 
 
 /* Banner */
@@ -121,11 +120,11 @@ nav {
     background-color: var(--gris);
 }
 
-.introduccion h2,
-.servicios h2 {
-    color: var(--azul);
-    margin-bottom: 1rem;
-}
+    .introduccion h2,
+    .servicios h2 {
+        color: var(--azul);
+        margin-bottom: 1rem;
+    }
 
 .tarjetas {
     display: flex;
@@ -144,10 +143,10 @@ nav {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
 }
 
-.tarjeta h3 {
-    color: var(--verde);
-    margin-bottom: 0.5rem;
-}
+    .tarjeta h3 {
+        color: var(--verde);
+        margin-bottom: 0.5rem;
+    }
 
 /* WhatsApp flotante */
 .whatsapp-btn {
@@ -166,10 +165,10 @@ nav {
     z-index: 9999;
 }
 
-.whatsapp-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
-}
+    .whatsapp-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+    }
 
 .icon-phone {
     width: 28px;
@@ -193,6 +192,7 @@ nav {
         transform: scale(1);
         opacity: 0.6;
     }
+
     100% {
         transform: scale(1.5);
         opacity: 0;
@@ -226,13 +226,13 @@ nav {
     scrollbar-width: none;
 }
 
-.timeline::-webkit-scrollbar {
-    display: none;
-}
+    .timeline::-webkit-scrollbar {
+        display: none;
+    }
 
-.timeline:active {
-    cursor: grabbing;
-}
+    .timeline:active {
+        cursor: grabbing;
+    }
 
 .timeline-event {
     min-width: 300px;
@@ -247,10 +247,10 @@ nav {
     transition-delay: 0.2s;
 }
 
-.timeline-event[data-aos="fade-up"] {
-    opacity: 1;
-    transform: translateY(0);
-}
+    .timeline-event[data-aos="fade-up"] {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
 .timeline-image {
     width: 100px;
@@ -276,16 +276,20 @@ footer {
     nav .menu {
         gap: 1rem;
     }
+
     .banner-container {
         height: 350px;
         padding: 0 6%;
     }
+
     .banner-content h1 {
         font-size: 2.8em;
     }
+
     .banner-content p {
         font-size: 1.1em;
     }
+
     .btn-primary {
         padding: 12px 28px;
     }
@@ -295,58 +299,108 @@ footer {
     nav .menu {
         gap: 1rem;
     }
+
     .banner-container {
         height: 350px;
         padding: 0 6%;
     }
+
     .banner-content h1 {
         font-size: 2.8em;
     }
+
     .banner-content p {
         font-size: 1.1em;
     }
+
     .btn-primary {
         padding: 12px 28px;
     }
 }
 
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    justify-content: space-between;
+    z-index: 1001;
+}
+
+    .menu-toggle span {
+        background: var(--blanco);
+        height: 3px;
+        width: 100%;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    z-index: 999;
+}
+
+    .menu-overlay.active {
+        display: block;
+    }
+
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        align-items: center;
+    .menu-toggle {
+        display: flex;
     }
+
     .menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background-color: var(--azul);
         flex-direction: column;
-        gap: 0.5rem;
-        margin-top: 1rem;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 3rem 2rem;
+        gap: 1.5rem;
+        transition: right 0.3s ease-in-out;
+        z-index: 1000;
     }
-    .banner-container {
-        height: 300px;
-        padding: 0 5%;
-        text-align: center;
-        justify-content: center;
+
+        .menu.active {
+            right: 0;
+        }
+
+        .menu li {
+            width: 100%;
+        }
+
+            .menu li a {
+                font-size: 1.2rem;
+                width: 100%;
+                display: block;
+                color: var(--blanco);
+            }
+
+    .menu-toggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
     }
-    .banner-content {
-        max-width: 90%;
-        padding-left: 0;
+
+    .menu-toggle.open span:nth-child(2) {
+        opacity: 0;
     }
-    .banner-content h1 {
-        font-size: 2.4em;
+
+    .menu-toggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
     }
-    .banner-content p {
-        font-size: 1em;
-    }
-    .btn-primary {
-        padding: 10px 24px;
-        font-size: 0.9em;
-    }
-    .introduccion,
-    .servicios {
-        padding: 2rem 1rem;
-    }
-    .tarjetas {
-        flex-direction: column;
-        align-items: center;
+
+    body.menu-open {
+        overflow: hidden;
     }
 }
 
@@ -354,40 +408,50 @@ footer {
     header {
         padding: 0.8rem 1rem;
     }
+
     .logo img {
         height: 40px;
     }
+
     .menu li a {
         font-size: 0.9em;
     }
+
     .banner-container {
         height: 250px;
     }
+
     .banner-content h1 {
         font-size: 1.8em;
         margin-bottom: 10px;
     }
+
     .banner-content p {
         font-size: 0.9em;
         margin-bottom: 20px;
     }
+
     .btn-primary {
         padding: 8px 18px;
         font-size: 0.85em;
     }
+
     .banner-logo {
         font-size: 0.9em;
         letter-spacing: 2px;
     }
+
     .tarjeta {
         width: 90%;
     }
+
     .whatsapp-btn {
         width: 50px;
         height: 50px;
         bottom: 15px;
         right: 15px;
     }
+
     .icon-phone {
         width: 24px;
         height: 24px;

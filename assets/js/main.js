@@ -1,3 +1,23 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.querySelector('.menu');
+    const overlay = document.getElementById('menu-overlay');
+
+    toggle.addEventListener('click', () => {
+        toggle.classList.toggle('open');
+        menu.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    });
+
+    overlay.addEventListener('click', () => {
+        toggle.classList.remove('open');
+        menu.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.classList.remove('menu-open');
+    });
+});
+
 const timeline = document.getElementById("timeline");
 
 timeline.addEventListener("mousemove", (e) => {
