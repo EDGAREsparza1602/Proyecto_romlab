@@ -457,7 +457,53 @@ footer {
         height: 24px;
     }
 }
+/* ==============================================
+   REFERENCES PAGE
+   ============================================== */
 
+.header_reference {
+    background-color: var(--azul);
+    color: var(--gris);
+    padding: 1rem 2rem;
+    text-align: center;
+}
+.reference_titular h1{
+
+    text-align:center;
+    padding: 1rem 1rem;
+    color: black;
+}
+.referencias {
+    padding: 3rem 2rem;
+    background-color: var(--gris);
+}
+
+    .referencias h2 {
+        text-align: center;
+        color: var(--azul);
+        margin-bottom: 2rem;
+        font-size: 2em;
+    }
+
+    .referencias .galeria {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .referencias img,
+    .referencias video {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        object-fit: cover;
+    }
+
+    .referencias video {
+        background-color: #000;
+    }
 
 
 
