@@ -18,22 +18,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-header {
-    background: rgba(34, 34, 34, 0.75); /* Fondo oscuro semitransparente */
-    color: var(--blanco);
-    padding: 1rem 2rem;
-    position: fixed; /* Fijo arriba */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: background-color 0.3s ease;
-    backdrop-filter: blur(4px); /* Difumina el fondo */
-}
-
-
 body {
     font-family: 'Segoe UI', sans-serif;
     color: var(--azul);
@@ -53,7 +37,7 @@ body {
     z-index: 1;
 }
 
-/* Header 
+ 
 header {
     background-color: transparent;
     color: var(--blanco);
@@ -64,7 +48,7 @@ header {
     box-shadow: none;
     transition: background-color 0.3s ease;
 }
-    */
+
 nav {
     display: flex;
     align-items: center;
@@ -516,7 +500,16 @@ footer {
 /* ==============================================
    FORMULARIO DE CONTACTO PARA MÉDICOS
    ============================================== */
-
+.header_contact {
+    background-color: #aea8a7;
+    color: var(--blanco);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: none;
+    transition: background-color 0.3s ease;
+}
 .formulario-contacto {
     max-width: 800px;
     margin: 40px auto;
@@ -613,35 +606,6 @@ footer {
         grid-column: span 1;
     }
 }
-
-
-
-body.contact-page header {
-    background: var(--azul); /* Fondo azul sólido */
-    backdrop-filter: none; /* Opcional: elimina el blur si no lo quieres */
-}
-
-body.contact-page .menu li a {
-    color: var(--verde); /* Cambia el color de los enlaces del menú */
-    text-shadow: none; /* Opcional: elimina la sombra si no la quieres */
-}
-
-    body.contact-page .menu li a:hover {
-        color: var(--blanco);
-        text-shadow: 0 0 5px var(--blanco), 0 0 10px var(--blanco);
-    }
-/* Hero Banner */
-.hero-banner {
-    position: relative;
-    height: 500px;
-    overflow: hidden;
-}
-
-    .hero-banner img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
 
 .banner-text {
     position: absolute;
