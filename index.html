@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Rom Pharma - Soluciones farmacéuticas innovadoras" />
     <title>Rom Pharma | Inicio</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+          rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/styles_info.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -41,87 +40,121 @@
         <div class="banner-container"></div>
     </div>
 
-        <section class="introduccion">
-            <div class="contenedor">
-                <h2>Rom Pharma</h2>
-                <p>En Rom Pharma brindamos soluciones farmacéuticas confiables y seguras, respaldadas por años de experiencia y un equipo comprometido con la salud de nuestros clientes.</p>
+
+    <section class="introduccion">
+        <div class="contenedor">
+            <h2>Rom Pharma</h2>
+            <p>En Rom Pharma brindamos soluciones farmacéuticas confiables y seguras, respaldadas por años de experiencia y un equipo comprometido con la salud de nuestros clientes.</p>
+        </div>
+    </section>
+    <div class="main-content-wrapper">
+        <div class="productos">
+            <div class="product-display" id="productDisplay">
+                <div class="card" id="miCard">
+                    <h2>NEUTROVIT</h2>
+                    <img src="https://portadas.herbolib.es/0/395/70/8437018752355.jpg?cliente=3548&cod_instalacion=LAU&fichero_no_foto=laurisilva.jpg" alt="Facial Sui Generis">
+                    <div class="titulo">Facial Sui G'eneris</div>
+                    <div class="precio">$690.00</div>
+                    <button class="btn btn-contact">CONTACTANOS</button>
+                    <button class="btn btn-show-details">Ver detalles</button>
+                </div>
+
+                <div class="product-details" id="productDetails">
+                    <h3>Descripción del Producto</h3>
+                    <p>Facial Sui G'eneris es una fórmula innovadora diseñada para revitalizar y rejuvenecer la piel desde la raíz. Con ingredientes 100% naturales, ayuda a reducir las líneas de expresión, mejorar la elasticidad y proporcionar una hidratación profunda. Ideal para todo tipo de piel.</p>
+                    <h4>Beneficios clave:</h4>
+                    <ul>
+                        <li>Hidratación intensa</li>
+                        <li>Acción antienvejecimiento</li>
+                        <li>Mejora la elasticidad de la piel</li>
+                        <li>Ingredientes naturales</li>
+                    </ul>
+                    <div class="dosis">
+                        <h4>Modo de Uso:</h4>
+                        <p>Aplicar una pequeña cantidad sobre el rostro limpio y seco por la mañana y por la noche, masajeando suavemente hasta su total absorción.</p>
+                    </div>
+                    <button class="btn btn-show-card">Ver tarjeta</button>
+                </div>
+
             </div>
-        </section>
-
-        <section class="servicios">
-            <div class="contenedor">
-                <h2>Nuestros Servicios</h2>
-                <div class="tarjetas">
-                    <div class="tarjeta">
-                        <h3>Distribución de medicamentos</h3>
-                        <p>Entregas eficientes y seguras para hospitales, clínicas y farmacias.</p>
-                    </div>
-                    <div class="tarjeta">
-                        <h3>Asesoría técnica</h3>
-                        <p>Consultoría en procesos farmacéuticos y normativas sanitarias.</p>
-                    </div>
-                    <div class="tarjeta">
-                        <h3>Desarrollo de productos</h3>
-                        <p>Formulación y mejora de productos médicos con tecnología de punta.</p>
-                    </div>
+        </div>
+    </div>
+    <section class="servicios">
+        <div class="contenedor">
+            <h2>Nuestros Servicios</h2>
+            <div class="tarjetas">
+                <div class="tarjeta">
+                    <h3>Distribución de medicamentos</h3>
+                    <p>Entregas eficientes y seguras para hospitales, clínicas y farmacias.</p>
                 </div>
-            </div>
-        </section>
-
-        <section class="timeline-container">
-            <div class="title-timeline">
-                <h2>Nuestra Historia Nos Respalda</h2>
-            </div>
-            <div class="timeline" id="timeline">
-                <div class="timeline-event" data-aos="fade-up">
-                    <div class="timeline-content">
-                        <img src="https://via.placeholder.com/100" alt="Imagen de Tesla" class="timeline-image" />
-                        <h2>1900</h2>
-                        <p>Personaje: Nikola Tesla</p>
-                    </div>
+                <div class="tarjeta">
+                    <h3>Asesoría técnica</h3>
+                    <p>Consultoría en procesos farmacéuticos y normativas sanitarias.</p>
                 </div>
-
-                <div class="timeline-event" data-aos="fade-up">
-                    <div class="timeline-content">
-                        <img src="https://via.placeholder.com/100" alt="Imagen de Einstein" class="timeline-image" />
-                        <h2>1920</h2>
-                        <p>Personaje: Albert Einstein</p>
-                    </div>
-                </div>
-
-                <div class="timeline-event" data-aos="fade-up">
-                    <div class="timeline-content">
-                        <img src="https://via.placeholder.com/100" alt="Imagen de Edgar Esparza" class="timeline-image" />
-                        <h2>1920</h2>
-                        <p>Personaje: Edgar Esparza</p>
-                    </div>
-                </div>
-
-                <div class="timeline-event" data-aos="fade-up">
-                    <div class="timeline-content">
-                        <img src="https://via.placeholder.com/100" alt="Imagen de Ángel Chavarin" class="timeline-image" />
-                        <h2>1920</h2>
-                        <p>Personaje: Ángel Chavarin</p>
-                    </div>
+                <div class="tarjeta">
+                    <h3>Desarrollo de productos</h3>
+                    <p>Formulación y mejora de productos médicos con tecnología de punta.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <a href="https://wa.me/3322376394?text=Hola%2C%20quiero%20más%20información%20sobre%20sus%20servicios"
-           class="whatsapp-btn"
-           target="_blank"
-           rel="noopener noreferrer">
-            <svg class="icon-phone" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path fill="white" d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24 12.14 12.14 0 003.8.6 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 12.14 12.14 0 00.6 3.8 1 1 0 01-.24 1.05z" />
-            </svg>
-        </a>
+    <section class="timeline-container">
+        <div class="title-timeline">
+            <h2>Nuestra Historia Nos Respalda</h2>
+        </div>
+        <div class="timeline" id="timeline">
+            <div class="timeline-event" data-aos="fade-up">
+                <div class="timeline-content">
+                    <img src="https://via.placeholder.com/100" alt="Imagen de Tesla" class="timeline-image" />
+                    <h2>1900</h2>
+                    <p>Personaje: Nikola Tesla</p>
+                </div>
+            </div>
 
-        <footer>
-            <p>&copy; 2025 Rom Pharma. Todos los derechos reservados.</p>
-        </footer>
+            <div class="timeline-event" data-aos="fade-up">
+                <div class="timeline-content">
+                    <img src="https://via.placeholder.com/100" alt="Imagen de Einstein" class="timeline-image" />
+                    <h2>1920</h2>
+                    <p>Personaje: Albert Einstein</p>
+                </div>
+            </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+            <div class="timeline-event" data-aos="fade-up">
+                <div class="timeline-content">
+                    <img src="https://via.placeholder.com/100" alt="Imagen de Edgar Esparza" class="timeline-image" />
+                    <h2>1920</h2>
+                    <p>Personaje: Edgar Esparza</p>
+                </div>
+            </div>
 
-        <script src="assets/js/main.js"></script>
+            <div class="timeline-event" data-aos="fade-up">
+                <div class="timeline-content">
+                    <img src="https://via.placeholder.com/100" alt="Imagen de Ángel Chavarin" class="timeline-image" />
+                    <h2>1920</h2>
+                    <p>Personaje: Ángel Chavarin</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/3322376394?text=Hola%2C%20quiero%20más%20información%20sobre%20sus%20servicios"
+       class="whatsapp-btn"
+       target="_blank"
+       rel="noopener noreferrer">
+        <svg class="icon-phone" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="white" d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24 12.14 12.14 0 003.8.6 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 12.14 12.14 0 00.6 3.8 1 1 0 01-.24 1.05z" />
+        </svg>
+    </a>
+
+    <footer>
+        <p>&copy; 2025 Rom Pharma. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main_info.js"></script>
+
 </body>
 </html>
