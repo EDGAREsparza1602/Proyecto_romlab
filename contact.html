@@ -7,9 +7,9 @@
     <title>Rom Pharma | Contacto</title>
     <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
-<body>
+<body class="contact-page">
 
-    <!-- Encabezado (igual que en tu p�gina principal) -->
+    <!-- Encabezado (igual que en tu pígina principal) -->
     <header>
         <nav>
             <div class="logo">
@@ -18,11 +18,18 @@
             <ul class="menu">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
-                <li><a href="referencias.html">Referencias</a></li>
+                <li><a href="references.html">Referencias</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
+
+
+    <!-- Banner superior -->
+    <section class="contact-banner">
+        <h1>Contacto para Profesionales de la Salud</h1>
+        <p>¿Tienes dudas, comentarios o deseas información sobre nuestros productos? Completa el formulario y nuestro equipo te contactará a la brevedad.</p>
+    </section>
 
     <!-- Formulario de contacto -->
     <section class="formulario-contacto">
@@ -31,16 +38,16 @@
             <div class="form-grid">
                 <div class="form-group">
                     <label for="nombre" class="required-field">Nombre completo</label>
-                    <input type="text" id="nombre" name="nombre" required placeholder="Dr. Juan P�rez Garc�a">
+                    <input type="text" id="nombre" name="nombre" required placeholder="Dr. Juan Pérez García">
                 </div>
 
                 <div class="form-group">
-                    <label for="correo" class="required-field">Correo electr�nico</label>
+                    <label for="correo" class="required-field">Correo electrónico</label>
                     <input type="email" id="correo" name="correo" required placeholder="ejemplo@dominio.com">
                 </div>
 
                 <div class="form-group">
-                    <label for="telefono" class="required-field">Tel�fono</label>
+                    <label for="telefono" class="required-field">Teléfono</label>
                     <input type="tel" id="telefono" name="telefono" required placeholder="+52 33 1234 5678">
                 </div>
 
@@ -50,34 +57,34 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="cedula" class="required-field">C�dula Profesional</label>
+                    <label for="cedula" class="required-field">Cídula Profesional</label>
                     <input type="text" id="cedula" name="cedula" required placeholder="Ej. 12345678">
                 </div>
 
                 <div class="form-group">
-                    <label for="institucion">Instituci�n/Hospital</label>
-                    <input type="text" id="institucion" name="institucion" placeholder="Nombre de la instituci�n">
+                    <label for="institucion">Institución/Hospital</label>
+                    <input type="text" id="institucion" name="institucion" placeholder="Nombre de la institución">
                 </div>
 
                 <div class="form-group especialidad-medica">
-                    <label for="especialidad" class="required-field">Especialidad m�dica</label>
+                    <label for="especialidad" class="required-field">Especialidad módica</label>
                     <select id="especialidad" name="especialidad" required>
                         <option value="" disabled selected>Seleccione su especialidad</option>
-                        <option value="cardiologia">Cardiolog�a</option>
-                        <option value="pediatria">Pediatr�a</option>
-                        <option value="ginecologia">Ginecolog�a</option>
-                        <option value="oncologia">Oncolog�a</option>
+                        <option value="cardiologia">Cardiología</option>
+                        <option value="pediatria">Pediatría</option>
+                        <option value="ginecologia">Ginecología</option>
+                        <option value="oncologia">Oncología</option>
                         <option value="medicina_interna">Medicina Interna</option>
-                        <option value="cirugia">Cirug�a</option>
-                        <option value="neurologia">Neurolog�a</option>
-                        <option value="oftalmologia">Oftalmolog�a</option>
+                        <option value="cirugia">Cirugía</option>
+                        <option value="neurologia">Neurología</option>
+                        <option value="oftalmologia">Oftalmología</option>
                         <option value="otras">Otra especialidad</option>
                     </select>
                 </div>
 
                 <div class="form-group full-width">
-                    <label for="mensaje">Mensaje o consulta espec�fica</label>
-                    <textarea id="mensaje" name="mensaje" rows="5" placeholder="Describa su consulta o �rea de inter�s..."></textarea>
+                    <label for="mensaje">Mensaje o consulta específica</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" placeholder="Describa su consulta o area de interes..."></textarea>
                 </div>
 
             </div>
@@ -86,7 +93,7 @@
         </form>
     </section>
 
-    <!-- Bot�n flotante WhatsApp -->
+    <!-- Botín flotante WhatsApp -->
     <a href="https://wa.me/3322376394?text=Hola%2C%20quiero%20más%20información%20sobre%20sus%20servicios"
        class="whatsapp-btn"
        target="_blank"
@@ -96,7 +103,7 @@
         </svg>
     </a>
 
-    <!-- Pie de p�gina -->
+    <!-- Pie de pígina -->
     <footer>
         <p>&copy; 2025 Rom Pharma. Todos los derechos reservados.</p>
     </footer>

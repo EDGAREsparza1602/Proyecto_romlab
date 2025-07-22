@@ -18,15 +18,31 @@
     box-sizing: border-box;
 }
 
+header {
+    background: rgba(34, 34, 34, 0.75); /* Fondo oscuro semitransparente */
+    color: var(--blanco);
+    padding: 1rem 2rem;
+    position: fixed; /* Fijo arriba */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+    backdrop-filter: blur(4px); /* Difumina el fondo */
+}
+
+
 body {
     font-family: 'Segoe UI', sans-serif;
     color: var(--azul);
     line-height: 1.6;
-    /*background-image: url('../img/banners/banner.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;*/
+    padding-top: 80px; /* Ajusta según la altura real de tu header */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
+
 
 .top-header {
     position: relative;
@@ -40,7 +56,7 @@ body {
     z-index: 1;
 }
 
-/* Header */
+/* Header 
 header {
     background-color: transparent;
     color: var(--blanco);
@@ -51,7 +67,7 @@ header {
     box-shadow: none;
     transition: background-color 0.3s ease;
 }
-
+    */
 nav {
     display: flex;
     align-items: center;
@@ -68,6 +84,8 @@ nav {
 }
 
 .menu {
+    color: var(--white);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
     list-style: none;
     margin: 0;
     padding: 0;
@@ -462,7 +480,7 @@ footer {
 
 
 /* ==============================================
-   FORMULARIO DE CONTACTO PARA M�DICOS
+   FORMULARIO DE CONTACTO PARA MÉDICOS
    ============================================== */
 
 .formulario-contacto {
@@ -522,7 +540,7 @@ footer {
     }
 
 .btn-enviar {
-    background-color: #3498db;
+    background: linear-gradient(90deg, var(--verde) 60%, var(--azul) 100%);
     color: white;
     border: none;
     padding: 14px 28px;
@@ -536,9 +554,10 @@ footer {
     text-align: center;
 }
 
-    .btn-enviar:hover {
-        background-color: #2980b9;
-    }
+.btn-enviar:hover {
+    background: linear-gradient(90deg, var(--azul) 60%, var(--verde) 100%);
+    box-shadow: 0 4px 16px rgba(44, 62, 80, 0.15);
+}
 
 .required-field::after {
     content: " *";
@@ -559,4 +578,168 @@ footer {
     .especialidad-medica {
         grid-column: span 1;
     }
+}
+
+
+
+body.contact-page header {
+    background: var(--azul); /* Fondo azul sólido */
+    backdrop-filter: none; /* Opcional: elimina el blur si no lo quieres */
+}
+
+body.contact-page .menu li a {
+    color: var(--verde); /* Cambia el color de los enlaces del menú */
+    text-shadow: none; /* Opcional: elimina la sombra si no la quieres */
+}
+
+    body.contact-page .menu li a:hover {
+        color: var(--blanco);
+        text-shadow: 0 0 5px var(--blanco), 0 0 10px var(--blanco);
+    }
+/* Hero Banner */
+.hero-banner {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+}
+
+    .hero-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.banner-text {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    color: white;
+    max-width: 600px;
+}
+
+/* Quick Facts */
+.quick-facts {
+    padding: 60px 0;
+    background: #f9f9f9;
+}
+
+.fact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.fact-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.fact-number {
+    font-size: 3em;
+    font-weight: bold;
+    color: #3498db;
+    display: block;
+}
+
+/* Scientific Evidence */
+.scientific-evidence {
+    padding: 80px 0;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #e74c3c;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+/* Professional Form */
+.med-form {
+    max-width: 700px;
+    margin: 40px auto;
+}
+
+    .med-form input,
+    .med-form textarea {
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+    }
+
+
+
+.contact-banner {
+    background: linear-gradient(90deg, var(--azul) 60%, var(--verde) 100%);
+    color: var(--blanco);
+    text-align: center;
+    padding: 3rem 1rem 2rem 1rem;
+    margin-bottom: 2rem;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
+}
+
+    .contact-banner h1 {
+        font-size: 2.2em;
+        margin-bottom: 0.5em;
+        font-weight: 700;
+    }
+
+    .contact-banner p {
+        font-size: 1.1em;
+        font-weight: 400;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+
+.input-icon {
+    position: relative;
+}
+
+    .input-icon input {
+        padding-left: 2.2em;
+    }
+
+    .input-icon span {
+        position: absolute;
+        left: 0.7em;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--azul);
+        font-size: 1.1em;
+        pointer-events: none;
+    }
+
+/* Iconos Unicode, puedes cambiar por SVG o FontAwesome si lo prefieres */
+.icon-user::before {
+    content: "👤";
+}
+
+.icon-mail::before {
+    content: "✉️";
+}
+
+.icon-phone::before {
+    content: "📞";
+}
+
+.icon-location::before {
+    content: "📍";
+}
+
+.icon-id::before {
+    content: "🆔";
+}
+
+.icon-hospital::before {
+    content: "🏥";
 }
