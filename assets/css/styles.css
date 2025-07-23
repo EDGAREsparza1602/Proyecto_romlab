@@ -36,8 +36,6 @@ body {
     background-color: transparent;
     z-index: 1;
 }
-
- 
 header {
     background-color: transparent;
     color: var(--blanco);
