@@ -525,124 +525,6 @@ footer {
 
 
 
-/* ==============================================
-   FORMULARIO DE CONTACTO PARA MÉDICOS
-   ============================================== */
-.header_contact {
-    background-color: var(--azul);
-    color: var(--blanco);
-    padding: 1rem 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: none;
-    transition: background-color 0.3s ease;
-}
-.formulario-contacto {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-    .formulario-contacto h1 {
-        text-align: center;
-        color: #2c3e50;
-        margin-bottom: 30px;
-        font-size: 2.2em;
-    }
-
-.form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-    .form-group label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: 600;
-        color: #34495e;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-size: 16px;
-        transition: border 0.3s;
-    }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: #3498db;
-            outline: none;
-            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-        }
-
-    .form-group.full-width {
-        grid-column: span 2;
-    }
-
-.btn-enviar {
-    background-color: var(--verde);
-    color: white;
-    border: none;
-    padding: 14px 28px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    display: block;
-    margin: 30px auto 0;
-    width: 200px;
-    text-align: center;
-}
-
-.btn-enviar:hover {
-    background: var(--azul);
-    box-shadow: 0 4px 16px rgba(44, 62, 80, 0.15);
-}
-
-.required-field::after {
-    content: " *";
-    color: #e74c3c;
-}
-
-.especialidad-medica {
-    grid-column: span 2;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .form-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .form-group.full-width,
-    .especialidad-medica {
-        grid-column: span 1;
-    }
-}
-
-.banner-text {
-    position: absolute;
-    bottom: 50px;
-    left: 50px;
-    color: white;
-    max-width: 600px;
-}
-
 /* Quick Facts */
 .quick-facts {
     padding: 60px 0;
@@ -700,8 +582,6 @@ footer {
         margin-bottom: 20px;
         border: 1px solid #ddd;
     }
-
-
 
 .contact-banner {
     background: linear-gradient(90deg, var(--azul) 60%, var(--verde) 100%);
@@ -1041,12 +921,14 @@ p {
     line-height: 1.6;
 }
 
-/* GRID DE TARJETAS PERFECTAMENTE ALINEADAS */
+/* CONTENEDOR PRINCIPAL DE TARJETAS */
 .compuestos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
     gap: 2rem;
     width: 100%;
+    overflow-x: auto; /* Para scroll horizontal si hay muchas tarjetas */
+    padding-bottom: 1rem; /* Espacio para scroll */
+    scrollbar-width: thin; /* Estilo moderno para scroll */
 }
 
 /* ESTILOS UNIFICADOS PARA TODAS LAS TARJETAS */
@@ -1055,109 +937,85 @@ p {
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     display: flex;
-    flex-direction: column;
-    height: 100%;
+    flex-direction: column; /* Cambiado a columna para contenido apilado */
+    min-width: 400px; /* Ancho mínimo fijo */
+    width: 400px; /* Ancho fijo para todas */
+    height: 450px; /* Altura fija para todas */
     transition: transform 0.3s ease;
+    flex-shrink: 0; /* Evita que se reduzcan */
 }
 
-    .compuesto-card:hover {
-        transform: translateY(-5px);
-    }
-
-/* CONTENIDO DE TARJETA CON ESTRUCTURA FLEXIBLE */
-.compuesto-imagen-container {
-    height: 200px;
-    overflow: hidden;
-}
-
-    .compuesto-imagen-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
-
+/* CONTENIDO DE LA TARJETA */
 .compuesto-contenido {
-    padding: 1.8rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    height: 100%; /* Ocupa todo el espacio disponible */
 }
 
-    .compuesto-contenido h3 {
-        color: var(--verde);
-        margin: 0 0 1rem 0;
-        text-align: center;
-        font-size: 1.4rem;
-        font-weight: 600;
-    }
+/* IMAGEN DE LA TARJETA */
+.compuesto-imagen-container {
+    height: 180px; /* Altura fija para imágenes */
+    overflow: hidden;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.compuesto-imagen-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* CONTENIDO DE TEXTO */
+.compuesto-contenido h3 {
+    color: var(--verde);
+    margin: 1rem 0;
+    text-align: center;
+    font-size: 1.4rem;
+}
 
 .resumen-compuesto {
     color: var(--azul);
-    margin: 0 0 1.5rem 0;
+    margin-bottom: 1rem;
     text-align: center;
-    line-height: 1.5;
-    min-height: 4.5em; /* Ajusta según necesidad */
-}
-
-.beneficios-lista {
-    margin: 0;
-    padding: 0 0 0 1.5rem;
     flex-grow: 1;
 }
 
-    .beneficios-lista li {
-        margin-bottom: 0.6rem;
-        color: var(--azul);
-        line-height: 1.4;
-    }
+/* LISTA DE BENEFICIOS */
+.beneficios-lista {
+    margin: 1rem 0;
+    padding-left: 1.2rem;
+    flex-grow: 1;
+}
 
+.beneficios-lista li {
+    margin-bottom: 0.5rem;
+    color: var(--azul);
+}
+
+/* BOTÓN */
 .btn-container {
     margin-top: auto; /* Empuja el botón hacia abajo */
-    padding-top: 1.5rem;
     text-align: center;
+    padding-top: 1rem;
 }
 
-.btn-mas-info {
+/* SCROLL PERSONALIZADO (OPCIONAL) */
+.compuestos-grid::-webkit-scrollbar {
+    height: 2px;
+}
+
+.compuestos-grid::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 2px;
+}
+
+.compuestos-grid::-webkit-scrollbar-thumb {
     background: var(--verde);
-    color: white;
-    border: none;
-    padding: 0.8rem 2rem;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: inline-block;
+    border-radius: 4px;
 }
-
-    .btn-mas-info:hover {
-        background: var(--azul);
-        transform: scale(1.05);
-    }
-
-/* ESTILOS ESPECIALES PARA LA TARJETA DOBLE */
-.compuesto-doble {
-    grid-column: span 2;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.cloruros-contenido {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-}
-
-.cloruro-item {
-    margin-bottom: 1.8rem;
-}
-
-    .cloruro-item h4 {
-        color: var(--verde);
-        margin-bottom: 0.8rem;
-        font-size: 1.3rem;
-        text-align: center;
-    }
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 1024px) {
