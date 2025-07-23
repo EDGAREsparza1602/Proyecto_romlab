@@ -1065,7 +1065,7 @@ p {
 }
 
 .btn-mas-info {
-    background: var(--verde);
+    background: var(--azul);
     color: white;
     border: none;
     padding: 0.8rem 2rem;
@@ -1077,7 +1077,7 @@ p {
 }
 
     .btn-mas-info:hover {
-        background: var(--azul);
+        background: var(--verde);
         transform: scale(1.05);
     }
 
