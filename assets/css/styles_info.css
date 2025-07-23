@@ -1,4 +1,4 @@
-body {
+Ôªøbody {
     font-family: Arial, sans-serif;
     background: #F6F6F6;
     margin: 0;
@@ -21,7 +21,7 @@ body {
     margin-top: 40px;
 }
 
-/* Contenedor principal del producto - se transforma en flip-card en mÛvil */
+/* Contenedor principal del producto - se transforma en flip-card en m√≥vil */
 .product-display {
     display: flex; /* Por defecto, para escritorio */
     flex-direction: row;
@@ -33,9 +33,9 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     width: 100%;
     box-sizing: border-box;
-    /* Propiedades 3D que SOLO se activar·n en mÛvil via media query y JS */
+    /* Propiedades 3D que SOLO se activar√°n en m√≥vil via media query y JS */
     perspective: 0; /* Por defecto, sin perspectiva para evitar distorsiones en escritorio */
-    position: static; /* Por defecto, est·tico en escritorio */
+    position: static; /* Por defecto, est√°tico en escritorio */
     overflow: visible; /* Por defecto, visible en escritorio */
     transform-style: flat; /* Por defecto, no 3D */
 }
@@ -51,11 +51,11 @@ body {
     text-align: center;
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
     box-sizing: border-box;
-    /* Propiedades de flip card que SOLO se activar·n en mÛvil */
-    position: static; /* Por defecto, est·tico en escritorio */
+    /* Propiedades de flip card que SOLO se activar√°n en m√≥vil */
+    position: static; /* Por defecto, est√°tico en escritorio */
     backface-visibility: visible; /* Por defecto, visible en escritorio */
     z-index: auto;
-    transform: none; /* Sin transformaciÛn por defecto */
+    transform: none; /* Sin transformaci√≥n por defecto */
 }
 
     .card h2 {
@@ -72,13 +72,14 @@ body {
 
 .card img {
     width: 100%; /* Ocupa el 100% del ancho disponible del contenedor */
-    max-width: 300px; /* Pero nunca m·s de 200px de ancho */
-    height: auto; /* Mantiene la proporciÛn original de la imagen */
+    max-width: 300px; /* Pero nunca m√°s de 200px de ancho */
+    height: auto; /* Mantiene la proporci√≥n original de la imagen */
     border-radius: 10px; /* Bordes redondeados */
     margin-bottom: 10px; /* Espacio debajo */
     display: block; /* Elimina espacio blanco extra (por default inline) */
     margin-left: auto;
     margin-right: auto; /* Centra la imagen horizontalmente */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15); /* ‚Üê difumina el borde con una sombra */
 }
 
 
@@ -115,20 +116,20 @@ body {
         background: var(--verde);
     }
 
-/* DescripciÛn del producto (cara trasera si hay flip) */
+/* Descripci√≥n del producto (cara trasera si hay flip) */
 .product-details {
     flex-grow: 1; /* Ocupa el espacio restante en escritorio */
     color: #333;
     line-height: 1.6;
     padding: 0 10px; /* En escritorio */
     box-sizing: border-box;
-    /* Propiedades de flip card que SOLO se activar·n en mÛvil */
-    position: static; /* Por defecto, est·tico en escritorio */
+    /* Propiedades de flip card que SOLO se activar√°n en m√≥vil */
+    position: static; /* Por defecto, est√°tico en escritorio */
     background-color: transparent; /* Por defecto, sin fondo extra en escritorio */
     border-radius: 0; /* Sin borde extra en escritorio */
     box-shadow: none; /* Sin sombra extra en escritorio */
     backface-visibility: visible; /* Por defecto, visible en escritorio */
-    transform: none; /* Sin transformaciÛn por defecto */
+    transform: none; /* Sin transformaci√≥n por defecto */
     overflow-y: visible; /* Visible por defecto */
 }
 
@@ -168,7 +169,7 @@ body {
 }
 
 
-/* Media Query para responsividad (mÛvil:*/
+/* Media Query para responsividad (m√≥vil:*/
 @media (max-width: 768px) {
   .main-content-wrapper {
     padding: 15px;
@@ -182,7 +183,7 @@ gap: 0; /* No hay espacio entre tarjeta y detalles, ya que se superponen */
 /* Activar propiedades de flip card para .product-display */
 height: 480px; /* Altura para el flip card */
 width: 90%; /* Ancho para el flip card */
-max-width: 320px; /* Limita el tamaÒo */
+max-width: 320px; /* Limita el tama√±o */
 perspective: 1000px; /* Activar 3D */
 position: relative; /* Para que los hijos absolutos se posicionen respecto a este */
 overflow: hidden; /* Oculta el contenido desbordado durante el flip */
@@ -208,10 +209,10 @@ transform-style: preserve-3d; /* Activar 3D para el contenedor principal */
     backface-visibility: hidden;
     transform: rotateY(0deg); /* Estado inicial */
     transition: transform 0.6s;
-    z-index: 2; /* Asegura que la frontal estÈ encima */
+    z-index: 2; /* Asegura que la frontal est√© encima */
 }
 
-/* La descripciÛn se convierte en la cara trasera */
+/* La descripci√≥n se convierte en la cara trasera */
 .product-details {
     position: absolute;
     top: 0;
@@ -235,7 +236,7 @@ transform-style: preserve-3d; /* Activar 3D para el contenedor principal */
     transition: transform 0.6s;
 }
 
-/* Rotar las caras cuando el product-display est· "volteado" */
+/* Rotar las caras cuando el product-display est√° "volteado" */
 .product-display.flipped .card {
     transform: rotateY(180deg); /* Voltea la cara frontal */
 }
@@ -244,19 +245,19 @@ transform-style: preserve-3d; /* Activar 3D para el contenedor principal */
     transform: rotateY(0deg); /* Muestra la cara trasera */
 }
 
-/* Asegurarse que la imagen dentro de la cara frontal sea visible y tenga un tamaÒo adecuado */
+/* Asegurarse que la imagen dentro de la cara frontal sea visible y tenga un tama√±o adecuado */
 .card img {
     max-width: 180px;
     margin-bottom: 15px;
 }
 
-/* Mostrar los botones de volteo en mÛvil */
+/* Mostrar los botones de volteo en m√≥vil */
 .btn-show-details, .btn-show-card {
     display: block;
     margin-top: 10px;
 }
 
-/* Ajustes de tipografÌa para la parte trasera en mÛvil */
+/* Ajustes de tipograf√≠a para la parte trasera en m√≥vil */
 .product-details h3 {
     font-size: 1.4em;
     margin-bottom: 10px;
@@ -275,7 +276,7 @@ transform-style: preserve-3d; /* Activar 3D para el contenedor principal */
 
 }
 
-/* Media Query para pantallas muy pequeÒas */
+/* Media Query para pantallas muy peque√±as */
 @media (max-width: 480px) {
     .product-display {
         width: 95%;
