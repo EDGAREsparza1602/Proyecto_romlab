@@ -59,7 +59,7 @@ body {
 }
 
     .card h2 {
-        color: #007bff;
+        color: var(--azul);
         margin-bottom: 10px;
         font-family: Arial, sans-serif;
         text-align: center;
@@ -85,7 +85,7 @@ body {
     font-weight: bold;
     font-size: 1.1em;
     margin-top: 10px;
-    color: #333;
+    color: var(--azul);
 }
 
 .precio {
@@ -96,7 +96,7 @@ body {
 }
 
 .btn {
-    background: #007bff;
+    background: var(--azul);
     color: white;
     padding: 12px 20px;
     border: none;
@@ -111,7 +111,7 @@ body {
 
     .btn:hover {
         border-radius: 5px;
-        background: #1EDF32;
+        background: var(--verde);
     }
 
 /* Descripción del producto (cara trasera si hay flip) */
@@ -133,13 +133,13 @@ body {
 
     .product-details h3 {
         font-size: 2em;
-        color: #007bff;
+        color: var(--azul);
         margin-bottom: 20px;
     }
 
     .product-details h4 {
         font-size: 1.4em;
-        color: #555;
+        color: var(--azul);
         margin-top: 30px;
         margin-bottom: 15px;
     }
