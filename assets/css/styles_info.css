@@ -71,15 +71,16 @@ body {
 }
 
 .card img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    display: block;
+    width: 100%; /* Ocupa el 100% del ancho disponible del contenedor */
+    max-width: 300px; /* Pero nunca más de 200px de ancho */
+    height: auto; /* Mantiene la proporción original de la imagen */
+    border-radius: 10px; /* Bordes redondeados */
+    margin-bottom: 10px; /* Espacio debajo */
+    display: block; /* Elimina espacio blanco extra (por default inline) */
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto; /* Centra la imagen horizontalmente */
 }
+
 
 .titulo {
     font-weight: bold;
