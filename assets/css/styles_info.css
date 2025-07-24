@@ -9,7 +9,7 @@
 .main-content-wrapper {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding-bottom: 80px;
     box-sizing: border-box;
 }
 
@@ -133,7 +133,7 @@
     overflow-y: visible; /* Visible por defecto */
 }
 
-    .product-details h3 {
+    .product-details h2 {
         font-size: 2em;
         color: var(--azul);
         margin-bottom: 20px;
