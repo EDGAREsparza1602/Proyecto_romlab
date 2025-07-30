@@ -109,11 +109,13 @@
     margin-top: 15px;
     font-size: 0.95em;
     text-transform: uppercase;
+    text-decoration: none;
 }
 
     .btn:hover {
         border-radius: 5px;
         background: var(--verde);
+        text-decoration: none;
     }
 
 /* Descripción del producto (cara trasera si hay flip) */

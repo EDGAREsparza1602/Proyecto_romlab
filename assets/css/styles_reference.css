@@ -22,11 +22,13 @@
     color: var(--azul);
 }
 
+/* === CONTENEDOR PRINCIPAL === */
 .referencias {
-    padding: 1rem 1rem 1rem; /* espacio superior para compensar header fijo */
+    padding: 1rem;
     background-color: var(--gris);
 }
 
+    /* === TÍTULO DE CADA SECCIÓN === */
     .referencias h2 {
         text-align: center;
         color: var(--azul);
@@ -34,34 +36,83 @@
         font-size: 2em;
     }
 
+/* === TÍTULO DE TEMA EN CUADRO AZUL === */
+.titulo-tema {
+    background-color: var(--azul);
+    color: var(--gris);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+/* === GALERÍA DE VIDEOS === */
+.referencias .galeria {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.referencias video {
+    background-color: #000;
+    border: 2px solid var(--azul);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+}
+
+    /* Animación al pasar el mouse sobre el video */
+    .referencias video:hover {
+        transform: scale(1.03);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+    }
+
+/* === ANIMACIÓN FADE-IN === */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.2s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* === RESPONSIVE GRID: 1, 2 o 3 COLUMNS === */
+
+/* 1 video por fila (móviles) */
+@media (max-width: 767px) {
     .referencias .galeria {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-        padding: 0 0rem;
+        flex-direction: column;
+        align-items: center;
     }
 
-    .referencias img,
     .referencias video {
-        max-width: 300px;
         width: 100%;
-        height: auto;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        object-fit: cover;
-        display: block;
+        max-width: 100%;
     }
+}
 
-    /* Estilo específico para videos */
-    .referencias video {
-        background-color: #000;
-        border: 2px solid var(--azul);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        cursor: pointer;
+/* 2 videos por fila (tablets) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .referencias .galeria video {
+        width: 48%;
     }
+}
 
-        /* Animación al pasar el mouse sobre el video */
-        .referencias video:hover {
-            transform: scale(1.03);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
+/* 3 videos por fila (pantallas grandes) */
+@media (min-width: 1025px) {
+    .referencias .galeria video {
+        width: 32%;
+    }
+}
