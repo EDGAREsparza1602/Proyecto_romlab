@@ -1,4 +1,5 @@
-﻿body {
+﻿/* === Base === */
+body {
     font-family: Arial, sans-serif;
     background: #F6F6F6;
     margin: 0;
@@ -13,6 +14,7 @@
     box-sizing: border-box;
 }
 
+/* === Product Cards Grid === */
 .productos {
     display: flex;
     justify-content: center;
@@ -21,41 +23,39 @@
     margin-top: 40px;
 }
 
-/* Contenedor principal del producto - se transforma en flip-card en móvil */
+/* === Product Display Container === */
 .product-display {
-    display: flex; /* Por defecto, para escritorio */
+    display: flex;
     flex-direction: row;
     align-items: flex-start;
     gap: 40px;
     background-color: #F6F6F6;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     width: 100%;
     box-sizing: border-box;
-    /* Propiedades 3D que SOLO se activarán en móvil via media query y JS */
-    perspective: 0; /* Por defecto, sin perspectiva para evitar distorsiones en escritorio */
-    position: static; /* Por defecto, estático en escritorio */
-    overflow: visible; /* Por defecto, visible en escritorio */
-    transform-style: flat; /* Por defecto, no 3D */
+    perspective: 0;
+    position: static;
+    overflow: visible;
+    transform-style: flat;
 }
 
-/* Tarjeta de producto (cara frontal si hay flip) */
+/* === Product Card (Front) === */
 .card {
     background: white;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 280px; /* Ancho fijo para la tarjeta en escritorio */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 280px;
     flex-shrink: 0;
     padding: 20px;
     text-align: center;
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
     box-sizing: border-box;
-    /* Propiedades de flip card que SOLO se activarán en móvil */
-    position: static; /* Por defecto, estático en escritorio */
-    backface-visibility: visible; /* Por defecto, visible en escritorio */
+    position: static;
+    backface-visibility: visible;
     z-index: auto;
-    transform: none; /* Sin transformación por defecto */
+    transform: none;
 }
 
     .card h2 {
@@ -71,17 +71,16 @@
 }
 
 .card img {
-    width: 100%; /* Ocupa el 100% del ancho disponible del contenedor */
-    max-width: 300px; /* Pero nunca más de 200px de ancho */
-    height: auto; /* Mantiene la proporción original de la imagen */
-    border-radius: 10px; /* Bordes redondeados */
-    margin-bottom: 10px; /* Espacio debajo */
-    display: block; /* Elimina espacio blanco extra (por default inline) */
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: block;
     margin-left: auto;
-    margin-right: auto; /* Centra la imagen horizontalmente */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15); /* ← difumina el borde con una sombra */
+    margin-right: auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
 }
-
 
 .titulo {
     font-weight: bold;
@@ -118,21 +117,20 @@
         text-decoration: none;
     }
 
-/* Descripción del producto (cara trasera si hay flip) */
+/* === Product Details (Back) === */
 .product-details {
-    flex-grow: 1; /* Ocupa el espacio restante en escritorio */
+    flex-grow: 1;
     color: #333;
     line-height: 1.6;
-    padding: 0 10px; /* En escritorio */
+    padding: 0 10px;
     box-sizing: border-box;
-    /* Propiedades de flip card que SOLO se activarán en móvil */
-    position: static; /* Por defecto, estático en escritorio */
-    background-color: transparent; /* Por defecto, sin fondo extra en escritorio */
-    border-radius: 0; /* Sin borde extra en escritorio */
-    box-shadow: none; /* Sin sombra extra en escritorio */
-    backface-visibility: visible; /* Por defecto, visible en escritorio */
-    transform: none; /* Sin transformación por defecto */
-    overflow-y: visible; /* Visible por defecto */
+    position: static;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    backface-visibility: visible;
+    transform: none;
+    overflow-y: visible;
 }
 
     .product-details h2 {
@@ -165,127 +163,121 @@
             font-size: 0.95em;
         }
 
-/* Ocultar botones de volteo por defecto (escritorio) */
-.btn-show-details, .btn-show-card {
-    display: none;
-}
-
-
-/* Media Query para responsividad (móvil:*/
-@media (max-width: 768px) {
-  .main-content-wrapper {
-    padding: 15px;
-  }
-
-  .product-display {
-    flex-direction: column; /* Apila los elementos */
-align-items: center; /* Centra los elementos apilados */
-padding: 15px;
-gap: 0; /* No hay espacio entre tarjeta y detalles, ya que se superponen */
-/* Activar propiedades de flip card para .product-display */
-height: 480px; /* Altura para el flip card */
-width: 90%; /* Ancho para el flip card */
-max-width: 320px; /* Limita el tamaño */
-perspective: 1000px; /* Activar 3D */
-position: relative; /* Para que los hijos absolutos se posicionen respecto a este */
-overflow: hidden; /* Oculta el contenido desbordado durante el flip */
-transform-style: preserve-3d; /* Activar 3D para el contenedor principal */
-}
-
-/* La tarjeta frontal se posiciona absoluta y se ajusta para el flip */
-.card {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; /* Ocupa todo el ancho del product-display (que ahora es el flip) */
-    height: 100%; /* Ocupa toda la altura */
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    overflow-y: auto;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    /* Propiedades 3D para la cara frontal */
-    backface-visibility: hidden;
-    transform: rotateY(0deg); /* Estado inicial */
-    transition: transform 0.6s;
-    z-index: 2; /* Asegura que la frontal esté encima */
-}
-
-/* La descripción se convierte en la cara trasera */
-.product-details {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    overflow-y: auto;
-    background-color: white; /* Necesario para la cara trasera */
-    border-radius: 15px; /* Bordes para la cara trasera */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra para la cara trasera */
-    /* Propiedades 3D para la cara trasera */
-    backface-visibility: hidden;
-    transform: rotateY(180deg); /* Estado inicial de la cara trasera (oculta) */
-    transition: transform 0.6s;
-}
-
-/* Rotar las caras cuando el product-display está "volteado" */
-.product-display.flipped .card {
-    transform: rotateY(180deg); /* Voltea la cara frontal */
-}
-
-.product-display.flipped .product-details {
-    transform: rotateY(0deg); /* Muestra la cara trasera */
-}
-
-/* Asegurarse que la imagen dentro de la cara frontal sea visible y tenga un tamaño adecuado */
-.card img {
-    max-width: 180px;
-    margin-bottom: 15px;
-}
-
-/* Mostrar los botones de volteo en móvil */
-.btn-show-details, .btn-show-card {
+/* === Botones de volteo === */
+.btn-show-details,
+.btn-show-card {
     display: block;
     margin-top: 10px;
 }
 
-/* Ajustes de tipografía para la parte trasera en móvil */
-.product-details h3 {
-    font-size: 1.4em;
-    margin-bottom: 10px;
+/* === Responsivo: Móvil === */
+@media (max-width: 768px) {
+    .main-content-wrapper {
+        padding: 15px;
+    }
+
+    .product-display {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        gap: 0;
+        height: 540px;
+        width: 90%;
+        max-width: 320px;
+        perspective: 1000px;
+        position: relative;
+        overflow: hidden;
+        transform-style: preserve-3d;
+    }
+
+    .card {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        overflow-y: hidden;
+        backface-visibility: hidden;
+        transform: rotateY(0deg);
+        transition: transform 0.6s;
+        z-index: 2;
+    }
+
+    .product-details {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        overflow-y: hidden;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        backface-visibility: hidden;
+        transform: rotateY(180deg);
+        transition: transform 0.6s;
+        flex: 1 1 auto;
+        max-height: 100%;
+    }
+
+    .product-display.flipped .card {
+        transform: rotateY(180deg);
+    }
+
+    .product-display.flipped .product-details {
+        transform: rotateY(0deg);
+    }
+
+    .card img {
+        max-width: 180px;
+        margin-bottom: 15px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-details h3 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    .product-details h4 {
+        font-size: 1em;
+        margin-top: 10px;
+        margin-bottom: 6px;
+    }
+
+    .product-details p,
+    .product-details ul li {
+        font-size: 0.75em;
+        line-height: 1.2;
+        margin-bottom: 4px;
+    }
+    .product-details .btn-show-card {
+        margin-top: auto;
+        align-self: center;
+    }
+
 }
 
-.product-details h4 {
-    font-size: 1.1em;
-    margin-top: 15px;
-    margin-bottom: 8px;
-}
-
-.product-details p, .product-details ul li {
-    font-size: 0.85em;
-    margin-bottom: 5px;
-}
-
-}
-
-/* Media Query para pantallas muy pequeñas */
+/* === Responsivo: Pantallas muy pequeñas === */
 @media (max-width: 480px) {
     .product-display {
         width: 95%;
-        height: 420px;
+        height: 460px;
     }
 
-    .card, .product-details {
+    .card,
+    .product-details {
         padding: 15px;
     }
 }
