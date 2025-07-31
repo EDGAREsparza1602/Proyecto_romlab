@@ -2,6 +2,7 @@
     background-color: var(--gris);
     color: var(--azul);
     font-family: 'Segoe UI', sans-serif;
+    user-select: none;
 }
 
 .header_reference {

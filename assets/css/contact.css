@@ -3,6 +3,9 @@
 /* ==============================================
    FORMULARIO DE CONTACTO PARA MÉDICOS
    ============================================== */
+.contact-page {
+    user-select: none;
+}
 .header_contact {
     background-color: var(--azul);
     color: var(--blanco);
