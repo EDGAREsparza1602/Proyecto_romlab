@@ -163,17 +163,28 @@ body {
             font-size: 0.95em;
         }
 
-/* === Botones de volteo === */
+/* === Botones por defecto: ocultos === */
 .btn-show-details,
 .btn-show-card {
-    display: block;
-    margin-top: 10px;
+    display: none;
 }
 
 /* === Responsivo: Móvil === */
 @media (max-width: 768px) {
     .main-content-wrapper {
         padding: 15px;
+    }
+
+    .btn-show-details {
+        display: block;
+        margin-top: 10px;
+        align-self: center;
+    }
+
+    .product-display.flipped .btn-show-card {
+        display: block;
+        margin-top: auto;
+        align-self: center;
     }
 
     .product-display {
@@ -262,11 +273,19 @@ body {
         line-height: 1.2;
         margin-bottom: 4px;
     }
-    .product-details .btn-show-card {
-        margin-top: auto;
-        align-self: center;
+}
+
+/* === Prevención de flip y botones en escritorio === */
+@media (min-width: 769px) {
+    .product-display.flipped .card,
+    .product-display.flipped .product-details {
+        transform: none !important;
     }
 
+    .btn-show-details,
+    .btn-show-card {
+        display: none !important;
+    }
 }
 
 /* === Responsivo: Pantallas muy pequeñas === */
