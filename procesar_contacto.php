@@ -2,7 +2,7 @@
 // procesar_contacto.php
 
 // Configuración de la base de datos (reemplaza con tus credenciales de Hostinger)
-$servername = "localhost";
+$servername = "127.0.0.1:3306";
 $username = "u239220606_rompharma_user";
 $password = "Rompharma1244";
 $dbname = "u239220606_ROMPHARMADB";
