@@ -3,9 +3,9 @@
 
 // Configuración de la base de datos (reemplaza con tus credenciales de Hostinger)
 $servername = "localhost";
-$username = "tu_usuario_db";
-$password = "tu_contraseña_db";
-$dbname = "rompharma_db";
+$username = "rompharma";
+$password = "Rompharma1244";
+$dbname = "ROMPHARMADB";
 
 // Validar que el formulario fue enviado por POST
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
