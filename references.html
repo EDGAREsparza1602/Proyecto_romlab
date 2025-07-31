@@ -5,28 +5,30 @@
     <title>rompharma | referencias </title>
     <link rel="icon" href="assets/img/logo/favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
-          rel="stylesheet" />
+
+    <!-- Librerías -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/styles_reference.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Mejora carga de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body class="body_reference">
     <div class="hero-section_reference">
         <header class="header_reference">
             <nav>
                 <div class="logo">
-                    <img src="assets/img/logo/logo_white.png" alt="Logo Rom Pharma" />
-                </div>
-
-                <!-- Botón hamburguesa -->
+                    <a href="index.html">
+                        <img src="assets/img/logo/logo_white.png" alt="Logo Rom Pharma" />
+                    </a>                </div>
                 <div class="menu-toggle" id="menu-toggle">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
-
-                <!-- Menú de navegación -->
                 <ul class="menu">
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="nosotros.html">Nosotros</a></li>
@@ -34,49 +36,100 @@
                     <li><a href="contact.html">Contacto</a></li>
                 </ul>
             </nav>
-            <!-- Fondo oscuro del menú móvil -->
             <div class="menu-overlay" id="menu-overlay"></div>
         </header>
-        </div>
-        <main>
+    </div>
 
-            <section class="banner_reference">
-                <div>
-                    <h2>CASOS DE EXITO</h2>
+    <main>
+        <section class="banner_reference">
+            <div>
+                <h2>CASOS DE EXITO</h2>
+            </div>
+        </section>
+
+        <!-- Sección 1 -->
+        <section class="referencias fade-in">
+            <div class="titulo-tema">Especialistas en Deportes</div>
+            <div class="galeria">
+                <div class="video-placeholder horizontal" data-src="assets/video/doc_jaime.mp4" data-type="video/mp4" data-poster="assets/img/thumbnails/doc_jaime.jpg">
+                    <img src="assets/img/thumbnails/doc_jaime.jpg" alt="Cargando video..." class="video-thumb" />
                 </div>
-            </section>
-            <section class="referencias fade-in">
-                <div class="titulo-tema">Especialistas en Deportes</div>
-                <div class="galeria">
-                    <video src="assets/video/doc_jaime.mp4" controls></video>
-                    <video src="assets/video/doc_jaime1.mp4" controls></video>
+                <div class="video-placeholder vertical" data-src="assets/video/doc_jaime1.mp4" data-type="video/mp4" data-poster="assets/img/thumbnails/doc_jaime1.jpg">
+                    <img src="assets/img/thumbnails/doc_jaime1.jpg" alt="Cargando video..." class="video-thumb" />
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="referencias fade-in">
-                <div class="titulo-tema">Leucemia Mieloide Aguda</div>
-                <div class="galeria">
-                    <video src="assets/video/leucemia.mp4" controls></video>
-                    <!-- <video src="video5.mp4" controls></video>
-     <video src="video6.mp4" controls></video>-->
+        <!-- Sección 2 -->
+        <section class="referencias fade-in">
+            <div class="titulo-tema">Leucemia Mieloide Aguda</div>
+            <div class="galeria">
+                <div class="video-placeholder vertical" data-src="assets/video/leucemia.mp4" data-type="video/mp4" data-poster="assets/img/thumbnails/leucemia.jpg">
+                    <img src="assets/img/thumbnails/leucemia.jpg" alt="Cargando video..." class="video-thumb" />
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="referencias fade-in">
-                <div class="titulo-tema">Tema 3: Deportes</div>
-                <div class="galeria">
-                    <video src="video7.mp4" controls></video>
-                    <video src="video8.mp4" controls></video>
-                    <video src="video9.mp4" controls></video>
+        <!-- Sección 3 -->
+        <section class="referencias fade-in">
+            <div class="titulo-tema">Tema 3: Deportes</div>
+            <div class="galeria">
+                <div class="video-placeholder" data-src="video7.mp4" data-type="video/mp4" data-poster="assets/img/thumbnails/video7.jpg">
+                    <img src="assets/img/thumbnails/video7.jpg" alt="Cargando video..." class="video-thumb" />
                 </div>
-            </section>
-        </main>
+                <div class="video-placeholder" data-src="video8.mp4" data-type="video/mp4" data-poster="assets/img/thumbnails/video8.jpg">
+                    <img src="assets/img/thumbnails/video8.jpg" alt="Cargando video..." class="video-thumb" />
+                </div>
+                <div class="video-placeholder" data-src="video9.mp4" data-type="video/mp4" data-poster="assets/img/thumbnails/video9.jpg">
+                    <img src="assets/img/thumbnails/video9.jpg" alt="Cargando video..." class="video-thumb" />
+                </div>
+            </div>
+        </section>
+    </main>
 
-        <footer>
-            <p>&copy; 2025 Rom Pharma. Todos los derechos reservados.</p>
-        </footer>
-        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <footer>
+        <p>&copy; 2025 Rom Pharma. Todos los derechos reservados.</p>
+    </footer>
 
-        <script src="assets/js/main.js"></script>
-        <script src="assets/js/main_info.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/main_info.js" defer></script>
+
+    <!-- Lazy Load Video Script -->
+    <script defer>
+        document.addEventListener("DOMContentLoaded", function () {
+            const videoPlaceholders = document.querySelectorAll(".video-placeholder");
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const container = entry.target;
+                        const src = container.dataset.src;
+                        const type = container.dataset.type;
+                        const poster = container.dataset.poster;
+
+                        const video = document.createElement("video");
+                        video.controls = true;
+                        video.preload = "none";
+                        video.poster = poster;
+                        video.innerHTML = `<source src="${src}" type="${type}">Tu navegador no soporta video.`;
+                        video.style.width = "100%";
+                        video.style.borderRadius = "10px";
+                        video.style.display = "block";
+
+                        container.innerHTML = "";
+                        container.appendChild(video);
+
+                        obs.unobserve(container);
+                    }
+                });
+            }, {
+                threshold: 0.25
+            });
+
+            videoPlaceholders.forEach(v => observer.observe(v));
+        });
+    </script>
 </body>
+</html>
