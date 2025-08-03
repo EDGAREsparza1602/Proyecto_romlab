@@ -1,5 +1,42 @@
 <?php
-// [Configuración de la base de datos y validaciones anteriores permanecen igual...]
+
+$servername = "127.0.0.1:3306";
+$username = "u239220606_rompharma_user";
+$password = "Rompharma1244";
+$dbname = "u239220606_ROMPHARMADB";
+
+// Inicializar variable de mensaje
+$mensaje_respuesta = '';
+
+// Validar que el formulario fue enviado por POST
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
+    $mensaje_respuesta = "Error: El formulario debe ser enviado por POST.";
+    echo $mensaje_respuesta;
+    exit();
+}
+
+// Recoger y sanitizar los datos del formulario
+$nombre = htmlspecialchars(trim($_POST['nombre']));
+$correo = filter_var(trim($_POST['correo']), FILTER_SANITIZE_EMAIL);
+$telefono = preg_replace('/[^0-9+]/', '', trim($_POST['telefono']));
+$localidad = htmlspecialchars(trim($_POST['localidad']));
+$cedula = htmlspecialchars(trim($_POST['cedula']));
+$institucion = htmlspecialchars(trim($_POST['institucion']));
+$especialidad = htmlspecialchars(trim($_POST['especialidad']));
+$mensaje = htmlspecialchars(trim($_POST['mensaje']));
+
+// Validaciones adicionales
+if (empty($nombre) || empty($correo) || empty($telefono) || empty($localidad) || empty($cedula) || empty($especialidad)) {
+    $mensaje_respuesta = "Error: Por favor complete todos los campos requeridos.";
+    echo $mensaje_respuesta;
+    exit();
+}
+
+if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+    $mensaje_respuesta = "Error: El formato del correo electrónico no es válido.";
+    echo $mensaje_respuesta;
+    exit();
+}
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
