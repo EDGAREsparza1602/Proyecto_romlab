@@ -135,5 +135,45 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/main_info.js"></script>
     <script src="assets/js/form-validation.js"></script>
+
+
+    <!-- Modal/Popup -->
+    <div id="modal-mensaje" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:white; padding:20px; border-radius:5px; box-shadow:0 0 10px rgba(0,0,0,0.3); z-index:1000;">
+        <div id="modal-contenido"></div>
+        <button onclick="cerrarModal()" style="margin-top:10px;">Cerrar</button>
+    </div>
+    <div id="modal-fondo" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
+
+    <script>
+        function mostrarModal(mensaje) {
+            document.getElementById('modal-contenido').innerHTML = mensaje;
+            document.getElementById('modal-mensaje').style.display = 'block';
+            document.getElementById('modal-fondo').style.display = 'block';
+        }
+
+        function cerrarModal() {
+            document.getElementById('modal-mensaje').style.display = 'none';
+            document.getElementById('modal-fondo').style.display = 'none';
+        }
+
+        // AJAX para enviar el formulario
+        $(document).ready(function () {
+            $('form').on('submit', function (e) {
+                e.preventDefault(); // Evita el envío normal
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'procesar_contacto.php',
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        mostrarModal(response);
+                    },
+                    error: function () {
+                        mostrarModal('Error al enviar el formulario');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

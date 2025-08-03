@@ -90,7 +90,8 @@ try {
 }
 
 // Mostrar el mensaje de respuesta
-echo $mensaje_respuesta;
+echo "<script>parent.mostrarModal('".addslashes($mensaje_respuesta)."');</script>";
+exit();
 
 // Cerrar conexión si existe
 if (isset($conn)) {
