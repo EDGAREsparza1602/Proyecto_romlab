@@ -137,29 +137,38 @@
     <script src="assets/js/form-validation.js"></script>
 
 
-    <!-- Modal/Popup -->
-    <div id="modal-mensaje" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:white; padding:20px; border-radius:5px; box-shadow:0 0 10px rgba(0,0,0,0.3); z-index:1000;">
-        <div id="modal-contenido"></div>
-        <button onclick="cerrarModal()" style="margin-top:10px;">Cerrar</button>
+    <!-- Agrega jQuery antes de tus scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Modal mejorado -->
+    <div id="modal-mensaje" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
+    background:white; padding:30px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    z-index:1000; max-width:500px; width:90%; text-align:center;">
+        <div id="modal-contenido" style="margin-bottom:20px; font-size:18px;"></div>
+        <button onclick="cerrarModal()" style="padding:10px 20px; background:#007bff; color:white;
+        border:none; border-radius:5px; cursor:pointer;">
+            Cerrar
+        </button>
     </div>
-    <div id="modal-fondo" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
+    <div id="modal-fondo" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+    background:rgba(0,0,0,0.7); z-index:999;"></div>
 
     <script>
         function mostrarModal(mensaje) {
-            document.getElementById('modal-contenido').innerHTML = mensaje;
-            document.getElementById('modal-mensaje').style.display = 'block';
-            document.getElementById('modal-fondo').style.display = 'block';
+            $('#modal-contenido').text(mensaje);
+            $('#modal-mensaje, #modal-fondo').fadeIn(300);
         }
 
         function cerrarModal() {
-            document.getElementById('modal-mensaje').style.display = 'none';
-            document.getElementById('modal-fondo').style.display = 'none';
+            $('#modal-mensaje, #modal-fondo').fadeOut(300);
         }
 
-        // AJAX para enviar el formulario
         $(document).ready(function () {
-            $('form').on('submit', function (e) {
-                e.preventDefault(); // Evita el envío normal
+            $('#contactoDoctor').on('submit', function (e) {
+                e.preventDefault();
+
+                // Mostrar carga
+                mostrarModal("Enviando mensaje...");
 
                 $.ajax({
                     type: 'POST',
@@ -167,9 +176,11 @@
                     data: $(this).serialize(),
                     success: function (response) {
                         mostrarModal(response);
+                        // Opcional: resetear el formulario
+                        $('#contactoDoctor')[0].reset();
                     },
                     error: function () {
-                        mostrarModal('Error al enviar el formulario');
+                        mostrarModal('Error al enviar el formulario. Por favor intente nuevamente.');
                     }
                 });
             });
