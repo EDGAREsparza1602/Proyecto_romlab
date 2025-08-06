@@ -56,4 +56,3 @@ document.getElementById('contactoDoctor').addEventListener('submit', function (e
         e.preventDefault();
     }
 });
-
